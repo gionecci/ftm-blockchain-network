@@ -1,0 +1,40 @@
+/**
+ * Definition of a Payment for Integrating FTM and BlockChain
+ *
+ */
+namespace org.acme.ftm
+
+
+participant BankParticipant identified by ABI {
+  o String ABI
+  o String name
+}
+
+asset BankAccountAsset identified by IBAN {
+  o String IBAN
+  o Double amount
+  o String userName
+}
+
+concept PaymentConcept {
+    o String paymentRefId
+    o Double amount
+    o String destIBAN
+    o String transactionRefNumber 
+    o String currency optional
+    o String description optional
+    o String Message 
+}
+
+transaction SettlmentTransaction  {
+  o PaymentConcept     payment
+  --> BankAccountAsset  bankAccount
+}
+
+transaction SettlmentTransaction1  {
+  o String     amount
+  o String     owner
+}
+
+
+

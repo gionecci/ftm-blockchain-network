@@ -1,0 +1,35 @@
+COMPOSER_CONNECTION_PROFILE=hlfv1
+COMPOSER_BUSINESS_NETWORK=ft-blockchain-network
+COMPOSER_ENROLLMENT_ID=admin
+COMPOSER_ENROLLMENT_SECRET=adminpw
+COMPOSER_NAMESPACES=never
+COMPOSER_AUTHENTICATION=false
+COMPOSER_MULTIUSER=false
+COMPOSER_CONFIG='{
+  "connectionProfiles": {
+    "hlfv1": {
+      "name": "hlfv1",
+      "description": "Hyperledger Fabric v1.0",
+      "type": "hlfv1",
+      "keyValStore": "/home/giovanni/.composer-credentials",
+      "timeout": 300,
+      "orderers": [
+        {
+          "url": "grpc://orderer.example.com:7050"
+        }
+      ],
+      "channel": "composerchannel",
+      "mspID": "Org1MSP",
+      "ca": {
+        "url": "http://ca.org1.example.com:7054",
+        "name": "ca.org1.example.com"
+      },
+      "peers": [
+        {
+          "requestURL": "grpc://peer0.org1.example.com:7051",
+          "eventURL": "grpc://peer0.org1.example.com:7053"
+        }
+      ]
+    }
+  }
+}'
